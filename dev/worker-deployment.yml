@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: worker
-          image: dsantafe/worker:1.0.0-2
+          image: dsantafe/worker:1.0.0-3
