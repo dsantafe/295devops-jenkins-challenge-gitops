@@ -17,13 +17,6 @@ spec:
           image: dsantafe/vote:1.0.0-1
           ports:
             - containerPort: 80
-      #     volumeMounts:
-      #       - name: vote-volume
-      #         mountPath: /usr/local/app
-      # volumes:
-      #   - name: vote-volume
-      #     persistentVolumeClaim:
-      #       claimName: vote-pv-claim
 ---
 apiVersion: v1
 kind: Service
