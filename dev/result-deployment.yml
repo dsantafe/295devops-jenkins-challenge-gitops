@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: result
+  template:
+    metadata:
+      labels:
+        app: result
+    spec:
+      containers:
+        - name: result
+          image: dsantafe/result:latest
+          ports:
+            - containerPort: 80
+      #     volumeMounts:
+      #       - name: result-volume
+      #         mountPath: /usr/local/app
+      # volumes:
+      #   - name: result-volume
+      #     persistentVolumeClaim:
+      #       claimName: result-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: result
+spec:
+  selector:
+    app: result
+  ports:
+    - protocol: TCP
+      port: 80
+  type: ClusterIP
